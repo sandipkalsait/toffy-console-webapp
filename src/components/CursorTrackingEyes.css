@@ -1,0 +1,61 @@
+.face {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 200px;
+  height: 80px;
+  background-color: #f9c5d1; /* A soft pink color */
+  border-radius: 50%;
+  position: relative;
+  padding: 2px;
+  /* border: 1px solid #747b7b; */
+  box-shadow: 5px 9px 10px rgba(0, 0, 0, 0.3); /* Shadow for the face */
+}
+
+.eye {
+  position: relative;
+  width: 30px; /* Increased width for more space for pupil movement */
+  height: 30px; /* Increased height for more space for pupil movement */
+  background: #fff; /* White for the eyes */
+  /* border-radius: 50%; */
+  /* overflow: hidden; */
+  box-shadow: 5px 9px 10px rgba(0, 0, 0, 0.3); /* Shadow for the face */
+}
+
+.pupil {
+  position: absolute;
+  width: 16px;
+  height: 12px;
+  background-color: hsl(252, 100%, 52%);
+  border-radius: 50%;
+  /* top and left are removed */
+  /* top: 50%;
+  left: 50%;  */
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out;
+  box-shadow: 4px 5px 5px rgb(2, 158, 255); /* Shadow for the face */
+}
+.eye::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.8); /* Light reflection */
+  border-radius: 50%;
+  /* top: 10%;
+  left: 10%; */
+}
+
+.eye::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  /* top: 60%;
+  left: 60%; */
+}
+
+.eye:hover .pupil {
+  transform: translate(-50%, -50%) scale(1.5); /* Slightly enlarge the pupil on hover */
+}
