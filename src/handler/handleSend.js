@@ -18,15 +18,14 @@ const handleSend = async ({
   try {
     setLoading(true);
     setInput("");
-
     // Send a POST request to the API
-    const response = await fetch("http://127.0.0.1:11434/api/generate", {
+    const response = await fetch(`${import.meta.env.VITE_APP_SERVER_URL}`+"/api/generate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "llama3.2", // The model used in the request
+        model: `${import.meta.env.VITE_APP_MODEL_NAME}`, // The model used in the request
         prompt: userInput, // The user's input
       }),
     });

@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from "react";
+import "./App.css";
 import ToffyLogo from "./components/ToffyLogo";
 import Spinner from "./components/Spinner";
 import handleSendFunction from "./handler/handleSend";
 import formatCode from "./handler/handleformat"; 
-import "./App.css";
 
 
 const App = () => {

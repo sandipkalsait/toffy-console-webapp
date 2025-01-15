@@ -2,13 +2,12 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 200px;
+  width: 250px;
   height: 80px;
   background-color: #f9c5d1; /* A soft pink color */
   border-radius: 50%;
   position: relative;
-  padding: 2px;
-  /* border: 1px solid #747b7b; */
+  border: 1px solid #747b7b;
   box-shadow: 5px 9px 10px rgba(0, 0, 0, 0.3); /* Shadow for the face */
 }
 
@@ -16,9 +15,11 @@
   position: relative;
   width: 30px; /* Increased width for more space for pupil movement */
   height: 30px; /* Increased height for more space for pupil movement */
-  background: #fff; /* White for the eyes */
+  background: #fff; 
   /* border-radius: 50%; */
   /* overflow: hidden; */
+  overflow: hidden;
+  border-radius: 50%;
   box-shadow: 5px 9px 10px rgba(0, 0, 0, 0.3); /* Shadow for the face */
 }
 
