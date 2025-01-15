@@ -76,3 +76,103 @@
   color: #999;
   cursor: pointer;
 }
+
+/* Table container for responsiveness */
+table {
+  border-collapse: collapse; /* Merges table borders */
+  width: 100%; /* Make the table take up full width */
+  margin: 1rem 0; /* Add some space around the table */
+  font-size: 1rem; /* Adjust font size */
+  text-align: left; /* Align content to the left */
+}
+
+/* Table borders */
+table, th, td {
+  border: 1px solid ; /* Light gray border for all elements */
+}
+
+/* Header styling */
+
+
+th {
+  font-weight: bold;
+  padding: 10px; /* Add some padding for readability */
+}
+
+/* Table rows */
+
+
+/* Table cells */
+td {
+  padding: 10px; /* Add padding for cells */
+}
+
+/* Hover effect for rows */
+tbody tr:hover {
+  background-color: #909090; /* Light highlight when hovering over rows */
+}
+
+/* Links in table */
+table a {
+  color: #007bff; /* Default blue link color */
+  text-decoration: none; /* Remove underline from links */
+}
+
+table a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+thead
+{
+  background-color: #343c42;
+}
+thead:hover
+{
+  background-color: #7aa5f4;
+  color: #ffffff; /* White text for contrast */
+
+  text-decoration-color: #000;
+}
+
+/* 
+.formatted-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+  font-size: 16px;
+  text-align: left;
+}
+
+.formatted-table thead tr {
+  background-color: #f4f4f4;
+  border-bottom: 2px solid #ddd;
+}
+
+.formatted-table th,
+.formatted-table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+}
+
+.formatted-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.formatted-table tbody tr:hover {
+  background-color: #f1f1f1;
+} */
+
+pre {
+  background: #3c53617e;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+code {
+  font-family: monospace;
+  background: #669cde89;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+

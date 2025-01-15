@@ -2,7 +2,9 @@ import { useState, useEffect, useRef } from "react";
 import "./App.css";
 import ToffyLogo from "./components/ToffyLogo";
 import Spinner from "./components/Spinner";
-import handleSendFunction from "./handler/handleSend";
+import getEntireOutputOncePerRequest from "./handler/handleSend";
+import getRuntimeResponsePerRequest from "./handler/handleSend2";
+
 import formatCode from "./handler/handleformat"; 
 
 
@@ -99,16 +101,67 @@ const App = () => {
   //   return screenWidth < 768 ? 60 : 120; // Shorter lines for mobile, longer for desktop
   // };
 
-  const handleSend = () => {
-    handleSendFunction({ input, setInput, setConsoleOutput, setLoading });
+  // const handleSend = () => {
+  //   handleSendFunction({ input, setInput, setConsoleOutput, setLoading });
+  // };
+
+  const handleSend = async () => {
+    if (!input.trim()) return; // Ignore if input is empty
+  
+    const timestamp = new Date();
+    const userInput = input;
+  
+    // Add user input to consoleOutput
+    setConsoleOutput((prev) => [
+      ...prev,
+      { type: "user", text: userInput, timestamp },
+    ]);
+  
+    try {
+      setLoading(true);
+      setInput(""); // Clear input field after submission
+  
+      // Check if runtime mode is enabled
+      if (`${import.meta.env.VITE_APP_MODE_RUNTIME}`) {
+        // Call the runtime message handler
+        await getRuntimeResponsePerRequest({
+          input: userInput,
+          setInput,
+          setConsoleOutput,
+          setLoading,
+        });
+      } else {
+        // Call the entire message handler
+        await getEntireOutputOncePerRequest({
+          input: userInput,
+          setInput,
+          setConsoleOutput,
+          setLoading,
+        });
+      }
+    } catch (error) {
+      console.error("Error during message handling:", error);
+      setConsoleOutput((prev) => [
+        ...prev,
+        {
+          type: "error",
+          text: "An error occurred while processing your request. Please try again.",
+          timestamp: new Date(),
+        },
+      ]);
+    } finally {
+      setLoading(false);
+    }
   };
+  
+
 
   const sortedOutput = consoleOutput.sort(
     (a, b) => new Date(a.timestamp) - new Date(b.timestamp)
   );
 
   return (
-    <div className="relative flex flex-col h-screen bg-gray-900 text-white p-10 font-mono">
+    <div className="relative flex flex-col h-screen bg-gray-900 text-white p-20 font-mono">
       {/* Background Eyes */}
       <div className="absolute opacity-30 inset-0 z-0 flex justify-center mt-20">
         <ToffyLogo />

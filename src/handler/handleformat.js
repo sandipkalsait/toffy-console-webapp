@@ -54,6 +54,34 @@ const formatCode = (text, maxLineLength = 120) => {
       '<a href="$2" target="_blank">$1</a>'
     );
 
+     // Detect and convert Markdown-style tables into HTML tables
+ 
+   const tableRegex =
+  /\|(.+?)\|\n\|[\s\-:|]+\|\n((?:\|.+?\|\n)*)/g;
+
+text = text.replace(tableRegex, (match, headers, rows) => {
+  const headerCells = headers
+    .split("|")
+    .map((header) => `<th>${header.trim()}</th>`)
+    .join("");
+  const bodyRows = rows
+    .trim()
+    .split("\n")
+    .map((row) => {
+      const cells = row
+        .split("|")
+        .filter((cell) => cell.trim() !== "") // Remove any empty cells
+        .map((cell) => `<td>${cell.trim()}</td>`)
+        .join("");
+      return `<tr>${cells}</tr>`;
+    })
+    .join("");
+  return `<table border="1" style="border-collapse: collapse; text-align: left; width: 100%; margin: 1em 0;">` +
+         `<thead style="background-color: #f4f4f4;"><tr>${headerCells}</tr></thead>` +
+         `<tbody>${bodyRows}</tbody>` +
+         `</table>`;
+});
+
     // Format paragraph breaks (wrap each line in <p> tags)
     text = text.replace(/([^\n]+)/g, "<p>$1</p>");
 
