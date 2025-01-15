@@ -3,6 +3,9 @@
 
 This project is an interactive chat application featuring a conversational AI assistant. The app is designed using vite JS + React and offers a visually engaging interface, complete with cursor-tracking eyes and animated UI elements.
 
+![image](https://github.com/user-attachments/assets/5d37c1b6-41e5-4260-92f2-9d965a746bc3)
+
+
 ## Features
 
 - **Dynamic Chat Interface**: Users can interact with the AI in a real-time chat environment.
