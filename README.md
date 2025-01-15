@@ -36,13 +36,13 @@ Before you begin, ensure you have the following installed:
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/sandipkalsait/toffy-console-webapp.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd <project-directory>
+   cd toffy-console-webapp
    ```
 
 3. Install the dependencies:
