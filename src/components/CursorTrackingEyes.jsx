@@ -28,8 +28,8 @@ const CursorTrackingEyes = () => {
       const offsetY = mouseY - eyeCenterY;
 
       // Maximum movement distance for the pupil
-      let maxOffsetX = (eyeRect.width / 2) - 8; // 8px margin considering pupil size
-      let maxOffsetY = (eyeRect.height / 2) - 8; // 8px margin considering pupil size
+      let maxOffsetX = (eyeRect.width / 2) - 10; // 8px margin considering pupil size
+      let maxOffsetY = (eyeRect.height / 2) - 10; // 8px margin considering pupil size
 
       // Increase offset for right and bottom movement
       if (offsetX > 0) {
