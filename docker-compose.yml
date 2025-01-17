@@ -1,0 +1,17 @@
+services:
+  webapp:
+    build:
+      context: . # Path to the directory containing the Dockerfile
+      dockerfile: Dockerfile # Name of the Dockerfile (default is "Dockerfile")
+      args:
+        NODE_VERSION: 18 # Optional build argument if needed in Dockerfile
+    ports:
+      - "8080:8080" # Maps host port 8080 to container port 8080
+    environment:
+      - NODE_ENV=production
+      - VITE_APP_SERVER_URL=http://127.0.0.1:11434
+      - VITE_APP_MODEL_NAME=llama3.2
+      - VITE_APP_MODE_RUNTIME=true
+    stdin_open: true
+    tty: true
+    restart: always
